@@ -133,6 +133,36 @@ NVM的延迟与DRAM在同一个量级，寿命却与NAND flash差不多，所以
 
   3D-XPOINT是英特尔研发的，据说比NAND快1000倍，寿命长1000倍。使用非易失性材料，目前已有产品。
 
+## 4. Distributed storage
+
+- NFS
+
+  ![](./images/7.png)
+
+  使用RPC (Remote Procedure Call) 的远程文件系统。将远程server的文件系统mount到本地，通过本地到远端的收发请求实现分布式文件系统。
+
+- GFS
+
+  Google开发的一套分布式文件系统，结构如下：
+
+  ![](./images/8.png)
+
+  ![](./images/9.png)
+
+  整个server group分为一个Master和多个chunckserver，client发送读写请求，通过master拿到chunck handle后，直接与chunckserver交互，读写数据。
+
+- Ceph
+
+  Ceph是弹性可扩展、高可用、性能优异的分布式存储平台。其主要结构如下图所示：
+
+  ![](./images/10.png)
+
+  与GFS类似，Metadata server为client提供元数据操作，确定数据的位置（相当于GFS中的master），之后client直接与存放数据的Object storage进行I/O交互（相当于client与chunckserver的关系）。
+
+  与GFS不同的是，GFS只有一个master，而Ceph拥有一个Metadata server集群。
+
+  GFS有专门的监控器对集群进行监控，并负责在出现故障的时候通过映射解决一部分问题。
+
 # Key Indicators
 
 - Density
