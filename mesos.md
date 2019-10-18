@@ -54,9 +54,9 @@ Mesos 可以杀死有bug的或者是过度占用资源的task。
 
 ###### Making Resource Offers Scalable and Robust
 
-- 在master上使用ﬁlter，避免向那些总是拒绝特定资源的framwork发送offer。
-- 激励framwork对offer有更短的反应时间。
-- 如果一个framwork太久没有对offer作出反应，mesos会解除这个offer，然后重新发一个offer。
+- 在master上使用ﬁlter，避免向那些总是拒绝特定资源的framework发送offer。
+- 激励framework对offer有更短的反应时间。
+- 如果一个framework太久没有对offer作出反应，mesos会解除这个offer，然后重新发一个offer。
 
 ##### 隔离性
 
@@ -86,7 +86,7 @@ mesos使用了冗余来实现高可用。只有一个master是leader,其余的�
 
 如何给大规模集群系统顶下性能的指标，mesos使用了以下的标准。
 
-- 一个新的framwork达到它的allocation的时间
+- 一个新的framework达到它的allocation的时间
 - 完成一个job的时间
 - 集群的利用率
 
@@ -96,8 +96,8 @@ mesos使用了冗余来实现高可用。只有一个master是leader,其余的�
 
 **Task**: a unit of work that is scheduled by a framework, and is executed on a slave node. A task can be anything from a bash command or script, to an SQL query, to a Hadoop job
 
-**soft state** is [state](https://en.wikipedia.org/wiki/State_(computer_science)) which is useful for efficiency, but not essential, as it can be regenerated or replaced if needed.  
+**soft state** is state which is useful for efficiency, but not essential, as it can be regenerated or replaced if needed.  
 
 **Hot standby** is a redundant method in which one system runs simultaneously with an identical primary system. Upon failure of the primary system, the hot standby system immediately takes over, replacing the primary system. However, data is still mirrored in real time. Thus, both systems have identical data.
 
-**slots：**identical slices of machines
+**slots** are identical slices of machines
