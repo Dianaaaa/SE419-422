@@ -63,4 +63,14 @@ microk8s.kubectl -n kube-system describe secret $token
 microk8s.kubectl port-forward -n kube-system service/kubernetes-dashboard 10443:443 --address 0.0.0.0
 ```
 
-![avatar]([https://github.com/Dianaaaa/SE419-422/blob/project/report/images/1.png))
+![avatar](https://github.com/Dianaaaa/SE419-422/blob/project/report/images/1.png)
+
+## Backend Deployment
+
+##  
+
+## Database Deployment
+
+使用 Deployment 部署 MySQL 的 Pod
+
+![avatar](https://github.com/Dianaaaa/SE419-422/blob/project/report/images/2.png) 
