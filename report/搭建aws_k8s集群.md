@@ -71,6 +71,20 @@ microk8s.kubectl port-forward -n kube-system service/kubernetes-dashboard 10443:
 
 ## Database Deployment
 
+安装mysql
+
+```
+sudo apt-get install mysql-client
+```
+
+连接到mysql
+
+可以通过 Kubernetes 的 32100 端口访问。
+
+```
+ mysql -h 10.152.183.79  -u root -ppassword
+```
+
 使用 Deployment 部署 MySQL 的 Pod
 
-![avatar](https://github.com/Dianaaaa/SE419-422/blob/project/report/images/2.png) 
+![avatar](https://github.com/Dianaaaa/SE419-422/blob/project/report/images/2.PNG) 
