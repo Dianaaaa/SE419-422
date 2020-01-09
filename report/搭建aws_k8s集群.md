@@ -80,6 +80,14 @@ microk8s.kubectl apply -f back-svc.yaml
 
 ![avatar](https://github.com/Dianaaaa/SE419-422/blob/project/report/images/3.png) 
 
+访问方式总结
+
+service的clusterip可以使用，使用方式serviceClusterIP:port（其他方式都不行），所有的节点都可以通过访问serviceClusterIP:port进行访问服务
+
+pod的clusterip进行访问，使用方式podClusterIP:targetport，但是每个节点只能使用自己节点的podClusterIP访问自己的pod
+
+node的ip进行访问，使用方式nodeIP:nodePort（如果nodePort没有指定，创建service会自动生成一个）
+
 ## Database Deployment
 
 安装mysql
@@ -99,3 +107,7 @@ sudo apt-get install mysql-client
 使用 Deployment 部署 MySQL 的 Pod
 
 ![avatar](https://github.com/Dianaaaa/SE419-422/blob/project/report/images/2.PNG) 
+
+连接到mysql
+
+![avatar](https://github.com/Dianaaaa/SE419-422/blob/project/report/images/mysql.PNG) 
