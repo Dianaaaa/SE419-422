@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: back-dm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: back-pod
+  template:
+    metadata:
+      labels: 
+        app: back-pod
+    spec:
+      containers:
+      - name: back
+        image: dianaaaa/shorturl:4.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
