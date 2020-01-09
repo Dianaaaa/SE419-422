@@ -110,6 +110,13 @@ node的ip进行访问，使用方式nodeIP:nodePort（如果nodePort没有指定
 sudo apt-get install mysql-client
 ```
 
+启动deployment和service
+
+```
+microk8s.kubectl apply -f mysql-dm.yaml
+microk8s.kubectl apply -f mysql-svc.yaml
+```
+
 连接到mysql
 
 通过nodeport暴露32100 端口,，可直接通过 IP 访问mysql。
