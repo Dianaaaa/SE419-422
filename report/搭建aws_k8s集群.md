@@ -94,13 +94,25 @@ GET请求
 
 ![avatar](https://github.com/Dianaaaa/SE419-422/blob/project/report/images/post_get.png) 
 
+集群外访问 GET请求
+
+```
+http://18.213.192.39:32200/get-url?shortlink=5HNjJo8U
+```
+
 ###### 访问方式总结
+
+**servicePort**
 
 service的clusterip可以使用，使用方式serviceClusterIP:port（其他方式都不行），所有的节点都可以通过访问serviceClusterIP:port进行访问服务
 
 pod的clusterip进行访问，使用方式podClusterIP:targetport，但是每个节点只能使用自己节点的podClusterIP访问自己的pod
 
+**NodePort**
+
 node的ip进行访问，使用方式nodeIP:nodePort（如果nodePort没有指定，创建service会自动生成一个）
+
+kube-proxy会自动将流量以轮询的方式转发给该service的每一个pod。
 
 ## Database Deployment
 
