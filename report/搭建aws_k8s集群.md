@@ -67,7 +67,18 @@ microk8s.kubectl port-forward -n kube-system service/kubernetes-dashboard 10443:
 
 ## Backend Deployment
 
-##  
+#### 启动deployment和service
+
+```
+
+microk8s.kubectl apply -f back-dm.yaml
+microk8s.kubectl apply -f back-svc.yaml
+
+```
+
+通过nodeport暴露32200端口，可直接通过 IP 访问后端
+
+![avatar](https://github.com/Dianaaaa/SE419-422/blob/project/report/images/3.png) 
 
 ## Database Deployment
 
@@ -79,10 +90,10 @@ sudo apt-get install mysql-client
 
 连接到mysql
 
-可以通过 Kubernetes 的 32100 端口访问。
+通过nodeport暴露32100 端口,，可直接通过 IP 访问mysql。
 
 ```
- mysql -h 10.152.183.79  -u root -ppassword
+ mysql -h 10.152.183.79  -u root -ppassword -P32100
 ```
 
 使用 Deployment 部署 MySQL 的 Pod
