@@ -30,11 +30,11 @@ func InitDB()  {
     DB.SetMaxIdleConns(10)
 	
 	err := DB.Ping();
-	for (err != nil) {
+	if (err != nil) {
 		fmt.Println("opon database fail")
-		time.Sleep(1000 * time.Millisecond)
-		DB, _ = sql.Open("mysql", path)
-		err = DB.Ping();
+		// time.Sleep(1000 * time.Millisecond)
+		// DB, _ = sql.Open("mysql", path)
+		// err = DB.Ping();
 	}
     fmt.Println("connnect success")
 }
