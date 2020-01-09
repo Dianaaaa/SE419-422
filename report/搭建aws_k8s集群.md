@@ -80,6 +80,20 @@ microk8s.kubectl apply -f back-svc.yaml
 
 ![avatar](https://github.com/Dianaaaa/SE419-422/blob/project/report/images/3.png) 
 
+POST请求
+
+```
+curl -i -X POST -H 'Content-type':'application/json' -d {\"path\":\"www.bilibili.com\"} http://172.31.1.7:32200/generate
+```
+
+GET请求
+
+```
+ curl 172.31.1.7:32200/get-url?shortlink=5HNjJo8U
+```
+
+![avatar](https://github.com/Dianaaaa/SE419-422/blob/project/report/images/post_get.PNG) 
+
 访问方式总结
 
 service的clusterip可以使用，使用方式serviceClusterIP:port（其他方式都不行），所有的节点都可以通过访问serviceClusterIP:port进行访问服务
@@ -101,13 +115,13 @@ sudo apt-get install mysql-client
 通过nodeport暴露32100 端口,，可直接通过 IP 访问mysql。
 
 ```
- mysql -h 10.152.183.79  -u root -ppassword -P32100
+mysql -h 172.31.7.23 -P32100 -uroot -p
 ```
 
 使用 Deployment 部署 MySQL 的 Pod
 
 ![avatar](https://github.com/Dianaaaa/SE419-422/blob/project/report/images/2.PNG) 
 
-连接到mysql
+后端插入了数据后的情况
 
 ![avatar](https://github.com/Dianaaaa/SE419-422/blob/project/report/images/mysql.PNG) 
