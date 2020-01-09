@@ -12,8 +12,8 @@ import (
 //数据库配置
 const (
     userName = "root"
-    password = ""
-    ip = "localhost"
+    password = "root"
+    ip = "172.31.7.23"
     port = "3306"
     dbName = "shorturl"
 )

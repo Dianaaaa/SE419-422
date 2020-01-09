@@ -12,7 +12,7 @@ COPY go.mod .
 COPY go.sum .
 RUN GO111MODULE=on go mod download
 COPY . .
-RUN go install -ldflags "-s -w -X" shorturl
+RUN go install -ldflags "-s -w" shorturl
 
 # runtime image
 FROM gcr.io/google_containers/ubuntu-slim:0.14
