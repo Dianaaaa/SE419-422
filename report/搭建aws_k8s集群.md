@@ -92,9 +92,9 @@ GET请求
  curl 172.31.1.7:32200/get-url?shortlink=5HNjJo8U
 ```
 
-![avatar](https://github.com/Dianaaaa/SE419-422/blob/project/report/images/post_get.PNG) 
+![avatar](https://github.com/Dianaaaa/SE419-422/blob/project/report/images/post_get.png) 
 
-访问方式总结
+###### 访问方式总结
 
 service的clusterip可以使用，使用方式serviceClusterIP:port（其他方式都不行），所有的节点都可以通过访问serviceClusterIP:port进行访问服务
 
@@ -124,4 +124,4 @@ mysql -h 172.31.7.23 -P32100 -uroot -p
 
 后端插入了数据后的情况
 
-![avatar](https://github.com/Dianaaaa/SE419-422/blob/project/report/images/mysql.PNG) 
+![avatar](https://github.com/Dianaaaa/SE419-422/blob/project/report/images/mysql.png) 
