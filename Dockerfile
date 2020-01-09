@@ -17,4 +17,5 @@ RUN go install -ldflags "-s -w" shorturl
 # runtime image
 FROM gcr.io/google_containers/ubuntu-slim:0.14
 COPY --from=builder /go/bin/shorturl /usr/bin/shorturl
+EXPOSE 8000
 ENTRYPOINT ["shorturl"]
