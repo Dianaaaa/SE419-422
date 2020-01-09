@@ -14,7 +14,7 @@ const (
     userName = "root"
     password = "root"
     ip = "172.31.7.23"
-    port = "3306"
+    port = "32100"
     dbName = "shorturl"
 )
 //Db数据库连接池
