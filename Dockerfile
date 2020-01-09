@@ -1,21 +1,10 @@
-FROM golang:1.13-alpine as builder
-ARG VERSION=0.0.1
-
-ENV GO111MODULE=on
-ENV CGO_ENABLED=0
-ENV GOOS=linux
-ENV GOARCH=amd64
-
-# build
-WORKDIR /go/src/shorturl
-COPY go.mod .
-COPY go.sum .
-RUN GO111MODULE=on go mod download
-COPY . .
-RUN go install -ldflags "-s -w" shorturl
-
-# runtime image
-FROM gcr.io/google_containers/ubuntu-slim:0.14
-COPY --from=builder /go/bin/shorturl /usr/bin/shorturl
+FROM golang:latest
+WORKDIR $GOPATH/src/github.com/shorturl
+#将服务器的go工程代码加入到docker容器中
+ADD . $GOPATH/src/github.com/shorturl
+#go构建可执行文件
+RUN go build .
+#暴露端口
 EXPOSE 8000
-ENTRYPOINT ["shorturl"]
+#最终运行docker的命令
+ENTRYPOINT  ["./shorturl"]
