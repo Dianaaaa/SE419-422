@@ -13,7 +13,7 @@ import (
 const (
     userName = "root"
     password = ""
-    ip = "mysql"
+    ip = "localhost"
     port = "3306"
     dbName = "shorturl"
 )
@@ -29,10 +29,13 @@ func InitDB()  {
     //设置上数据库最大闲置连接数
     DB.SetMaxIdleConns(10)
 	
-    if err := DB.Ping(); err != nil{
-        fmt.Println("opon database fail")
-        return
-    }
+	err := DB.Ping();
+	for (err != nil) {
+		fmt.Println("opon database fail")
+		time.Sleep(1000 * time.Millisecond)
+		DB, _ = sql.Open("mysql", path)
+		err = DB.Ping();
+	}
     fmt.Println("connnect success")
 }
 
