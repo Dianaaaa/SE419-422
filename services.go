@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"crypto/md5"
 	"time"
+	"math/rand"
+	"strconv"
 )
 
 var tenToAny map[byte]string = map[byte]string{
@@ -81,7 +83,9 @@ func get_md5_string(str string) []byte {
 func to_short_url(ip string) string {
 	const base_format = "2006-01-02 15:04:05"
 	t := time.Now()
-	str := ip + t.Format(base_format)
+	rand.Seed(time.Now().Unix())
+	r := rand.Int()
+	str := ip + t.Format(base_format) + strconv.Itoa(r)
 	fmt.Println("str ", str)
 	md5_code := get_md5_string(str)
 	fmt.Println("md5_str ", md5_code)

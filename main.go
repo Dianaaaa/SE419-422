@@ -18,7 +18,7 @@ func main() {
 	router := httprouter.New()
 	router.GET("/get-url", Geturl)
 	router.POST("/generate", Generate)
-	router.GET("/heart-beat", Heartbeat)
+	router.GET("/hb", Heartbeat)
 
 	log.Fatal(http.ListenAndServe(":8000", router))
 }
