@@ -124,4 +124,4 @@ mysql -h 172.31.7.23 -P32100 -uroot -p
 
 后端插入了数据后的情况
 
-![avatar](https://github.com/Dianaaaa/SE419-422/blob/project/report/images/mysql.png) 
+![avatar](https://github.com/Dianaaaa/SE419-422/blob/project/report/images/mysql.PNG) 
